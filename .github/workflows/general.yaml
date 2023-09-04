@@ -25,6 +25,7 @@ jobs:
         with:
           components: rustfmt
       - name: Enforce formatting
+        working-directory: ./api
         run: cargo fmt --check
 
   clippy:
@@ -37,6 +38,7 @@ jobs:
           components: clippy
       - uses: Swatinem/rust-cache@v2
       - name: Linting
+        working-directory: ./api
         run: cargo clippy -- -D warnings
 
   # coverage:
